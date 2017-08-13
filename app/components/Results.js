@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { battle } from '../utils/api';
 import { Link } from 'react-router-dom';
 import PlayerPreview from './PlayerPreview';
+import Loading from './Loading';
 
 const Profile = (props) => {
     const {avatar_url, login, name, location, company, followers, following, public_repos} = props.info;
@@ -78,7 +79,7 @@ export default class Results extends React.Component {
         const { error, winner, loser, loading } = this.state;
 
         if (loading) {
-            return <p>Loading...</p>
+            return <Loading/>;
         }
 
         if (error) {
